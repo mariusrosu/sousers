@@ -25,6 +25,6 @@ internal class StackOverflowApiTest {
     fun `When calling StackOverflow API should return list of users with id, name, picture and reputation`() = runTest {
         val response = api.getTopUsers()
 
-        assert(response.items.size == 20) { "Response should return 20 users!" }
+        assert(response.users.size == 20) { "Response should return 20 users!" }
     }
 }
