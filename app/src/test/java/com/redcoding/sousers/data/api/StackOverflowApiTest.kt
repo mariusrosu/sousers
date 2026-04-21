@@ -1,5 +1,6 @@
 package com.redcoding.sousers.data.api
 
+import com.redcoding.sousers.data.di.STACK_EXCHANGE_BASE_URL
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -16,7 +17,7 @@ internal class StackOverflowApiTest {
     }
 
     private val stackOverflowApi = Retrofit.Builder()
-        .baseUrl("https://api.stackexchange.com/2.2/")
+        .baseUrl(STACK_EXCHANGE_BASE_URL)
         .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
         .build()
         .create(StackOverflowApi::class.java)

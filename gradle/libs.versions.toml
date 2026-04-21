@@ -12,6 +12,8 @@ composeBom = "2026.02.01"
 retrofit = "3.0.0"
 
 hilt = "2.59.2"
+hilt_navigation_compose = "1.3.0"
+
 ksp = "2.3.6"
 kotlinx-serialization = "1.11.0"
 kotlinx-coroutines = "1.10.2"
@@ -42,6 +44,7 @@ kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-t
 
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt_navigation_compose" }
 
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 

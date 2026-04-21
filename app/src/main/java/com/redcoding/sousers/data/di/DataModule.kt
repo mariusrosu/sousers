@@ -40,4 +40,4 @@ internal class DataModule {
     fun provideUserRepository(impl: UserRepositoryImpl): UserRepository = impl
 }
 
-private const val STACK_EXCHANGE_BASE_URL = "http://api.stackexchange.com/2.2"
+internal const val STACK_EXCHANGE_BASE_URL = "https://api.stackexchange.com/2.2/"
