@@ -1,9 +1,9 @@
-package com.redcoding.sousers
+package com.redcoding.sousers.data.api
 
-import com.redcoding.sousers.data.api.StackOverflowApi
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
@@ -15,16 +15,16 @@ internal class StackOverflowApiTest {
         coerceInputValues = true
     }
 
-    private val api = Retrofit.Builder()
+    private val stackOverflowApi = Retrofit.Builder()
         .baseUrl("https://api.stackexchange.com/2.2/")
         .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
         .build()
         .create(StackOverflowApi::class.java)
 
     @Test
-    fun `When calling StackOverflow API should return list of users with id, name, picture and reputation`() = runTest {
-        val response = api.getTopUsers()
+    fun `Should return 20 users when calling StackOverflow API for top users`() = runTest {
+            val result = stackOverflowApi.getTopUsers()
 
-        assert(response.users.size == 20) { "Response should return 20 users!" }
-    }
+            assertEquals(result.users.size, 20)
+        }
 }

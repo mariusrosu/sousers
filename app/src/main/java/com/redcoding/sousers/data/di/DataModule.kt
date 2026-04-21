@@ -1,5 +1,7 @@
 package com.redcoding.sousers.data.di
 
+import com.redcoding.sousers.business.UserRepository
+import com.redcoding.sousers.data.UserRepositoryImpl
 import com.redcoding.sousers.data.api.StackOverflowApi
 import dagger.Module
 import dagger.Provides
@@ -33,6 +35,9 @@ internal class DataModule {
     @Provides
     fun provideStackOverflowService(retrofit: Retrofit): StackOverflowApi =
         retrofit.create(StackOverflowApi::class.java)
+
+    @Provides
+    fun provideUserRepository(impl: UserRepositoryImpl): UserRepository = impl
 }
 
 private const val STACK_EXCHANGE_BASE_URL = "http://api.stackexchange.com/2.2"
