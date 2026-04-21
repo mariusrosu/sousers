@@ -8,15 +8,18 @@ sealed class StringData {
 
     data class PlainString(val value: String) : StringData()
 
-    class ResourceString(
+    data class ResourceString(
         @param:StringRes val id: Int,
-        vararg val args: Any,
-    ) : StringData()
+        val args: List<Any> = emptyList(),
+    ) : StringData() {
+
+        constructor(@StringRes id: Int, vararg args: Any) : this(id, args.toList())
+    }
 
     @Composable
     fun resolve(): String = when (this) {
         is PlainString -> value
-        is ResourceString -> stringResource(id, *args)
+        is ResourceString -> stringResource(id, *args.toTypedArray())
     }
 }
 
