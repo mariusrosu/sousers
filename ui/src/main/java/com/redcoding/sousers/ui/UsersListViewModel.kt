@@ -64,9 +64,15 @@ internal class UsersListViewModel @Inject constructor(
             reputation = user.getReputationText(),
             buttonState = InlineButtonState(
                 text = user.getFollowButtonText(),
-                onClick = { onFollowButtonClicked(user) },
+                onClick = { onUserAction(UserAction.FollowButtonClicked(user)) },
             ),
         )
+    }
+
+    internal fun onUserAction(action: UserAction) {
+        when (action) {
+            is UserAction.FollowButtonClicked -> onFollowButtonClicked(action.user)
+        }
     }
 
     private fun onFollowButtonClicked(user: User) {
@@ -91,3 +97,7 @@ internal data class UiState(
     val toolbarTitle: StringData,
     val users: List<UserCardState>,
 )
+
+internal sealed interface UserAction {
+    data class FollowButtonClicked(val user: User) : UserAction
+}
