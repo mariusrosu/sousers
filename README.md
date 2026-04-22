@@ -3,7 +3,8 @@
 This is an Android application that fetches the top StackOverflow users and displays them in a list. The goal of this project is to showcase clean architecture in Android.
 
 ## Setup
-- Android Studio Panda or higher
+- Android Studio Panda 4 | 2025.3.4 or higher
+- AGP 9.1.1
 - JDK 21
 - Android device or emulator with API 24+
 
@@ -29,7 +30,7 @@ The app user can see the profile picture, name and reputation points for each St
 ## Architecture
 The application follows Uncle Bob’s clean architecture by defining clear separation of concerns and a unidirectional flow of data using the `ui`, `business` and `data` modules.
 
-<img width="1787" height="752" alt="Screenshot 2026-04-22 at 12 46 45" src="https://github.com/user-attachments/assets/411fb0bf-476f-4044-9849-eb08b2cc2937" />
+<img width="1081" height="451" alt="Screenshot 2026-04-22 at 13 21 32" src="https://github.com/user-attachments/assets/b50e11c4-719d-42a7-8fd4-35b792ac3e6a" />
 
 ### Data
 
