@@ -24,3 +24,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Stack Overflow Users"
 include(":app")
+include(":data")
+include(":business")
+include(":ui")

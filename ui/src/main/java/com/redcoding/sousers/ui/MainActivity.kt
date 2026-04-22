@@ -1,11 +1,10 @@
-package com.redcoding.sousers
+package com.redcoding.sousers.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import com.redcoding.sousers.ui.UserListScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

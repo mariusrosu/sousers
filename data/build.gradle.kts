@@ -1,11 +1,12 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
 }
 
 android {
-    namespace = "com.redcoding.sousers"
+    namespace = "com.redcoding.sousers.data"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -13,13 +14,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.redcoding.sousers"
         minSdk = 24
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -38,11 +33,20 @@ android {
 }
 
 dependencies {
-    implementation(project(":ui"))
     implementation(project(":business"))
-    implementation(project(":data"))
 
     // Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.kotlinx.serialization)
+
+    // Kotlin Serialization
+    implementation(libs.kotlinx.serialization.json)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
 }

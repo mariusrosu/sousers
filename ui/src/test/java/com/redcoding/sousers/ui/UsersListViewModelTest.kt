@@ -1,9 +1,6 @@
 package com.redcoding.sousers.ui
 
-import com.redcoding.sousers.R
 import com.redcoding.sousers.business.UserRepository
-import com.redcoding.sousers.business.model.User
-import com.redcoding.sousers.ui.components.UserCardState
 import com.redcoding.sousers.ui.util.Lce
 import com.redcoding.sousers.ui.util.MainDispatcherRule
 import com.redcoding.sousers.ui.util.StringData

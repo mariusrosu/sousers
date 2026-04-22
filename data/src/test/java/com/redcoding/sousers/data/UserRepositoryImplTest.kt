@@ -15,9 +15,8 @@ import io.mockk.verify
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
-import org.junit.Assert.assertEquals
+import org.junit.Assert
 import org.junit.Test
-import kotlin.collections.emptySet
 
 internal class UserRepositoryImplTest {
 
@@ -42,7 +41,7 @@ internal class UserRepositoryImplTest {
 
         val result = userRepository.getTopUsers().first()
 
-        assertEquals(
+        Assert.assertEquals(
             result,
             Result.success(
                 listOf(
@@ -61,7 +60,7 @@ internal class UserRepositoryImplTest {
 
         val result = userRepository.getTopUsers().first()
 
-        assertEquals(result, Result.failure<Throwable>(error))
+        Assert.assertEquals(result, Result.failure<Throwable>(error))
     }
 
     @Test
@@ -76,7 +75,7 @@ internal class UserRepositoryImplTest {
 
         val result = userRepository.getTopUsers().first()
 
-        assertEquals(
+        Assert.assertEquals(
             result,
             Result.success(
                 listOf(

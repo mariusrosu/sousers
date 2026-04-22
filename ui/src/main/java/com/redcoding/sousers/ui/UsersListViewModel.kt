@@ -3,7 +3,6 @@ package com.redcoding.sousers.ui
 import androidx.compose.runtime.Immutable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.redcoding.sousers.R
 import com.redcoding.sousers.business.UserRepository
 import com.redcoding.sousers.business.model.User
 import com.redcoding.sousers.ui.components.InlineButtonState
