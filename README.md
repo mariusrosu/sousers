@@ -14,6 +14,8 @@ The app user can see the profile picture, name and reputation points for each St
 ## Architecture
 The application follows Uncle Bob’s clean architecture by defining clear separation of concerns and a unidirectional flow of data using the `ui`, `business` and `data` modules.
 
+<img width="1787" height="752" alt="Screenshot 2026-04-22 at 12 46 45" src="https://github.com/user-attachments/assets/411fb0bf-476f-4044-9849-eb08b2cc2937" />
+
 ### Data
 
 `Data` is an Android module responsible for getting and storing the application data. It fetches the StackOverflow users from a remote API and also stores locally the follows users using `SharedPreferences`.
