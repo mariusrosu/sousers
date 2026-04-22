@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -48,10 +50,13 @@ internal fun UserCard(state: UserCardState) {
                 profilePictureUrl = state.profilePictureUrl,
                 userName = state.title.resolve(),
             )
-            Column {
+            Column(
+                modifier = Modifier.weight(1f),
+            ) {
                 TitleText(text = state.title.resolve())
                 ReputationText(text = state.reputation.resolve())
             }
+            InlineButton(state = state.buttonState)
         }
     }
 }
@@ -99,6 +104,7 @@ internal data class UserCardState(
     val profilePictureUrl: String,
     val title: StringData,
     val reputation: StringData,
+    val buttonState: InlineButtonState,
 )
 
 @Preview
@@ -108,6 +114,7 @@ private fun UserCardPreview() {
         profilePictureUrl = "https://google.com",
         title = "User Card Title".asPlainString(),
         reputation = "Reputation: 1,000,000".asPlainString(),
+        buttonState = InlineButtonState(text = "Follow".asPlainString()) {},
     )
     StackOverflowUsersTheme {
         UserCard(state)

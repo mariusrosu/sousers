@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.redcoding.sousers.ui.components.ErrorMessage
+import com.redcoding.sousers.ui.components.InlineButtonState
 import com.redcoding.sousers.ui.components.LoadingIndicator
 import com.redcoding.sousers.ui.components.UserCard
 import com.redcoding.sousers.ui.components.UserCardState
@@ -75,16 +76,19 @@ private fun UserListScreenPreview() {
                     profilePictureUrl = "",
                     title = "First user".asPlainString(),
                     reputation = "Reputation: 1,000,000".asPlainString(),
+                    buttonState = InlineButtonState("Follow".asPlainString()) {},
                 ),
                 UserCardState(
                     profilePictureUrl = "",
                     title = "Second user".asPlainString(),
                     reputation = "Reputation: 2,000,000".asPlainString(),
+                    buttonState = InlineButtonState("Follow".asPlainString()) {},
                 ),
                 UserCardState(
                     profilePictureUrl = "",
                     title = "Second user".asPlainString(),
                     reputation = "Reputation: 3,000,000".asPlainString(),
+                    buttonState = InlineButtonState("Follow".asPlainString()) {},
                 ),
             )
         )

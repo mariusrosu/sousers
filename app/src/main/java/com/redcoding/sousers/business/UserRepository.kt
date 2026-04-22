@@ -1,8 +1,13 @@
 package com.redcoding.sousers.business
 
 import com.redcoding.sousers.business.model.User
+import kotlinx.coroutines.flow.Flow
 
 interface UserRepository {
 
-    suspend fun getTopUsers(): Result<List<User>>
+    fun getTopUsers(): Flow<Result<List<User>>>
+
+    fun followUser(userId: Long)
+
+    fun unfollowUser(userId: Long)
 }

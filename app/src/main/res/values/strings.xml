@@ -2,4 +2,6 @@
     <string name="app_name">Stack Overflow Users</string>
     <string name="reputation">Reputation: %d</string>
     <string name="unknown_error">Unknown error!</string>
+    <string name="follow">Follow</string>
+    <string name="unfollow">Unfollow</string>
 </resources>
