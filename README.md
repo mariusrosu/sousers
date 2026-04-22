@@ -2,6 +2,21 @@
 
 This is an Android application that fetches the top StackOverflow users and displays them in a list. The goal of this project is to showcase clean architecture in Android.
 
+## Setup
+- Android Studio Panda or higher
+- JDK 21
+- Android device or emulator with API 24+
+
+## Run
+- Press **Run** in Android Studio or run:
+```bash
+  ./gradlew :app:installDebug
+```
+- Run tests with:
+```bash
+  ./gradlew test
+```
+
 ## Demo
 
 https://github.com/user-attachments/assets/ec6c4a86-6aa9-4e3e-bb0e-ef4f636063e8
