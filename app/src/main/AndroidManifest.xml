@@ -15,7 +15,7 @@
         android:theme="@style/Theme.StackOverflowUsers">
 
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.UserListActivity"
             android:exported="true"
             android:theme="@style/Theme.StackOverflowUsers">
             <intent-filter>

@@ -45,6 +45,7 @@ internal class UsersListViewModelTest {
             viewModel.uiState.value,
             Lce.Content(
                 data = UiState(
+                    toolbarTitle = StringData.ResourceString(R.string.toolbar_title),
                     users = emptyList()
                 )
             )

@@ -8,3 +8,5 @@ sealed interface Lce<out T> {
 
     data class Error(val message: StringData) : Lce<Nothing>
 }
+
+fun <T> Lce<T>.getContentOrNull(): T? = (this as? Lce.Content<T>)?.data

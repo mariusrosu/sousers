@@ -40,7 +40,12 @@ internal class UsersListViewModel @Inject constructor(
 
     private fun onTopUsersSuccess(users: List<User>) {
         _uiState.update {
-            Lce.Content(UiState(createUserCardStates(users)))
+            Lce.Content(
+                UiState(
+                    toolbarTitle = R.string.toolbar_title.asResourceString(),
+                    users = createUserCardStates(users),
+                )
+            )
         }
     }
 
@@ -82,4 +87,7 @@ private fun User.getFollowButtonText(): StringData = if (isFollowed) {
 }
 
 @Immutable
-internal data class UiState(val users: List<UserCardState>)
+internal data class UiState(
+    val toolbarTitle: StringData,
+    val users: List<UserCardState>,
+)

@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -18,11 +19,14 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.redcoding.sousers.ui.components.ErrorMessage
 import com.redcoding.sousers.ui.components.InlineButtonState
 import com.redcoding.sousers.ui.components.LoadingIndicator
+import com.redcoding.sousers.ui.components.Toolbar
 import com.redcoding.sousers.ui.components.UserCard
 import com.redcoding.sousers.ui.components.UserCardState
 import com.redcoding.sousers.ui.theme.StackOverflowUsersTheme
 import com.redcoding.sousers.ui.util.Lce
 import com.redcoding.sousers.ui.util.asPlainString
+import com.redcoding.sousers.ui.util.asResourceString
+import com.redcoding.sousers.ui.util.getContentOrNull
 
 @Composable
 internal fun UserListScreen(viewModel: UsersListViewModel) {
@@ -30,11 +34,13 @@ internal fun UserListScreen(viewModel: UsersListViewModel) {
     UserListScreen(uiState)
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun UserListScreen(uiState: Lce<UiState>) {
     StackOverflowUsersTheme {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
+            topBar = { uiState.getContentOrNull()?.let { Toolbar(it.toolbarTitle) } },
         ) { innerPadding ->
             Box(
                 modifier = Modifier
@@ -71,6 +77,7 @@ private fun UserList(uiState: UiState) {
 private fun UserListScreenPreview() {
     val state = Lce.Content(
         data = UiState(
+            toolbarTitle = R.string.toolbar_title.asResourceString(),
             users = listOf(
                 UserCardState(
                     profilePictureUrl = "",
