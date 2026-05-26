@@ -31,6 +31,7 @@ import com.redcoding.sousers.ui.util.asPlainString
 @Composable
 internal fun UserCard(state: UserCardState) {
     Card(
+        onClick = state.onCardClick,
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight(),
@@ -103,6 +104,7 @@ internal data class UserCardState(
     val title: StringData,
     val reputation: StringData,
     val buttonState: InlineButtonState,
+    val onCardClick: () -> Unit,
 )
 
 @Preview
@@ -113,6 +115,7 @@ private fun UserCardPreview() {
         title = "User Card Title".asPlainString(),
         reputation = "Reputation: 1,000,000".asPlainString(),
         buttonState = InlineButtonState(text = "Follow".asPlainString()) {},
+        onCardClick = {},
     )
     StackOverflowUsersTheme {
         UserCard(state)

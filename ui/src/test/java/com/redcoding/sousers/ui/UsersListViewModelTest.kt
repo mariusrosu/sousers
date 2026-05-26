@@ -86,8 +86,10 @@ internal class UsersListViewModelTest {
                     title = StringData.PlainString("One"),
                     reputation = StringData.ResourceString(R.string.reputation, 1),
                     buttonState = InlineButtonState(StringData.ResourceString(R.string.follow)) {},
+                    onCardClick = {},
                 ),
-                property = UserCardState::buttonState,
+                UserCardState::buttonState,
+                UserCardState::onCardClick,
             )
             uiState.users[1].shouldBeEqualToIgnoringFields(
                 other = UserCardState(
@@ -95,8 +97,10 @@ internal class UsersListViewModelTest {
                     title = StringData.PlainString("Two"),
                     reputation = StringData.ResourceString(R.string.reputation, 2),
                     buttonState = InlineButtonState(StringData.ResourceString(R.string.follow)) {},
+                    onCardClick = {},
                 ),
-                property = UserCardState::buttonState,
+                UserCardState::buttonState,
+                UserCardState::onCardClick,
             )
         }
     }

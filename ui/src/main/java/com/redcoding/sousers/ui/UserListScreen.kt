@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,8 +30,15 @@ import com.redcoding.sousers.ui.util.asResourceString
 import com.redcoding.sousers.ui.util.getContentOrNull
 
 @Composable
-internal fun UserListScreen(viewModel: UsersListViewModel) {
+internal fun UserListScreen(viewModel: UsersListViewModel, onUserClick: (Long) -> Unit) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    LaunchedEffect(Unit) {
+        viewModel.uiEvent.collect { event ->
+            when (event) {
+                is UiEvent.GoToUserDetails -> onUserClick(event.userId)
+            }
+        }
+    }
     UserListScreen(uiState)
 }
 
@@ -84,18 +92,21 @@ private fun UserListScreenPreview() {
                     title = "First user".asPlainString(),
                     reputation = "Reputation: 1,000,000".asPlainString(),
                     buttonState = InlineButtonState("Follow".asPlainString()) {},
+                    onCardClick = {},
                 ),
                 UserCardState(
                     profilePictureUrl = "",
                     title = "Second user".asPlainString(),
                     reputation = "Reputation: 2,000,000".asPlainString(),
                     buttonState = InlineButtonState("Follow".asPlainString()) {},
+                    onCardClick = {},
                 ),
                 UserCardState(
                     profilePictureUrl = "",
                     title = "Second user".asPlainString(),
                     reputation = "Reputation: 3,000,000".asPlainString(),
                     buttonState = InlineButtonState("Follow".asPlainString()) {},
+                    onCardClick = {},
                 ),
             )
         )

@@ -5,4 +5,10 @@
     <string name="unknown_error">Unknown error!</string>
     <string name="follow">Follow</string>
     <string name="unfollow">Unfollow</string>
+    <string name="user_details_toolbar_title">User Details</string>
+    <string name="badge_gold">Gold: %d</string>
+    <string name="badge_silver">Silver: %d</string>
+    <string name="badge_bronze">Bronze: %d</string>
+    <string name="user_location">Location: %s</string>
+    <string name="user_website">Website: %s</string>
 </resources>

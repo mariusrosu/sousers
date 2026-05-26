@@ -12,7 +12,10 @@ import com.redcoding.sousers.ui.util.StringData
 import com.redcoding.sousers.ui.util.asPlainString
 import com.redcoding.sousers.ui.util.asResourceString
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -26,6 +29,9 @@ internal class UsersListViewModel @Inject constructor(
 
     private val _uiState = MutableStateFlow<Lce<UiState>>(Lce.Loading)
     val uiState = _uiState.asStateFlow()
+
+    private val _uiEvent = MutableSharedFlow<UiEvent>(extraBufferCapacity = 1)
+    val uiEvent: SharedFlow<UiEvent> = _uiEvent.asSharedFlow()
 
     init {
         viewModelScope.launch {
@@ -66,6 +72,7 @@ internal class UsersListViewModel @Inject constructor(
                 text = user.getFollowButtonText(),
                 onClick = { onUserAction(UserAction.FollowButtonClicked(user)) },
             ),
+            onCardClick = { _uiEvent.tryEmit(UiEvent.GoToUserDetails(user.id)) },
         )
     }
 
@@ -100,4 +107,8 @@ internal data class UiState(
 
 internal sealed interface UserAction {
     data class FollowButtonClicked(val user: User) : UserAction
+}
+
+internal sealed interface UiEvent {
+    data class GoToUserDetails(val userId: Long) : UiEvent
 }
